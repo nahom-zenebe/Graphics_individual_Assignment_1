@@ -162,6 +162,7 @@ window.addEventListener('resize', () => {
 // Initialize panel state based on screen size
 if (isMobile()) {
     controlPanel.classList.add('collapsed');
+    
 } else {
     controlPanel.classList.remove('collapsed');
 }

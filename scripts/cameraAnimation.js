@@ -58,6 +58,7 @@ class CameraAnimation {
         document.getElementById('stopRotation').disabled = true;
     }
 
+    
     update() {
         // Update controls in every frame
         controls.update();
