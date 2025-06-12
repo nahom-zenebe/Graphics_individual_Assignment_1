@@ -77,6 +77,7 @@ function hideLoadingOverlay() {
     if (overlay) overlay.style.display = 'none';
 }
 
+
 // Simulate loading (since all geometry is procedural)
 Promise.resolve().then(() => {
     // All setup done, hide loading

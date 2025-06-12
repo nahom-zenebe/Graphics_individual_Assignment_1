@@ -100,6 +100,7 @@ class CameraAnimation {
         while (this.targetAngle - this.angle > Math.PI) this.targetAngle -= Math.PI * 2;
         while (this.targetAngle - this.angle < -Math.PI) this.targetAngle += Math.PI * 2;
     }
+    
 
     onUserControlStart() {
         if (this.isRotating) {
