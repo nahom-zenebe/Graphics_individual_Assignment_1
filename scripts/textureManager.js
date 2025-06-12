@@ -2,6 +2,7 @@ import * as THREE from 'https://cdn.skypack.dev/three@0.128.0';
 
 const textureLoader = new THREE.TextureLoader();
 
+
 // Function to create a material with texture
 function createTexturedMaterial(options) {
     const {
@@ -31,6 +32,7 @@ function createTexturedMaterial(options) {
 
     return material;
 }
+
 
 // Predefined materials with textures
 const materials = {

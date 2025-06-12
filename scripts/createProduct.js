@@ -6,10 +6,12 @@ import { materials } from './textureManager.js';
 function createPillowGeometry(width, height, depth, segments = 8) {
     const geometry = new THREE.BoxGeometry(width, height, depth, segments, segments, segments);
     
+
     // Get position attribute
     const position = geometry.attributes.position;
     const vertex = new THREE.Vector3();
     
+
     // Modify vertices to create pillow shape
     for (let i = 0; i < position.count; i++) {
         vertex.fromBufferAttribute(position, i);
@@ -41,6 +43,7 @@ function createPillowGeometry(width, height, depth, segments = 8) {
     
     return geometry;
 }
+
 
 function createBed() {
     const bedGroup = new THREE.Group();

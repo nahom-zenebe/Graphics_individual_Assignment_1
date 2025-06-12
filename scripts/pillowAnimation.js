@@ -1,5 +1,6 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.128.0';
 
+
 class PillowAnimation {
     constructor(pillows) {
         this.pillows = pillows;
@@ -15,6 +16,7 @@ class PillowAnimation {
         this.maxRotation = 0.05; // Maximum rotation angle
         this.phaseOffsets = [0, Math.PI * 0.7, Math.PI * 1.3]; // Different phases for each pillow
     }
+    
 
     update(deltaTime) {
         this.time += deltaTime * this.animationSpeed;

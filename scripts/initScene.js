@@ -1,9 +1,11 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.128.0';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 
+
 // Scene setup
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xf0f0f0);
+
 
 // Camera setup
 const camera = new THREE.PerspectiveCamera(
