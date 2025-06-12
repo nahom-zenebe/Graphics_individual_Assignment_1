@@ -100,4 +100,76 @@ window.addEventListener('beforeunload', () => {
     interactionManager.dispose();
     cameraAnimation.dispose();
     animationLoop.stop();
+});
+
+// Control Panel Mobile Toggle
+const controlPanel = document.querySelector('.control-panel');
+const controlPanelHeader = document.querySelector('.control-panel-header');
+
+// Function to check if device is mobile
+const isMobile = () => window.innerWidth <= 768;
+
+// Function to handle control panel collapse
+const toggleControlPanel = () => {
+    if (isMobile()) {
+        controlPanel.classList.toggle('collapsed');
+    }
+};
+
+// Function to auto-hide panel after interaction
+const autoHidePanel = () => {
+    if (isMobile() && !controlPanel.classList.contains('collapsed')) {
+        // Don't hide if user is interacting with controls
+        const isInteractingWithControls = controlPanel.matches(':hover') || 
+            Array.from(controlPanel.querySelectorAll('button, input')).some(el => el.matches(':hover'));
+        
+        if (!isInteractingWithControls) {
+            controlPanel.classList.add('collapsed');
+        }
+    }
+};
+
+// Add click event listener to header
+if (controlPanelHeader) {
+    controlPanelHeader.addEventListener('click', toggleControlPanel);
+}
+
+// Auto-hide panel when clicking outside
+document.addEventListener('click', (e) => {
+    if (!controlPanel.contains(e.target)) {
+        autoHidePanel();
+    }
+});
+
+// Auto-hide panel when touching outside on mobile
+document.addEventListener('touchend', (e) => {
+    if (!controlPanel.contains(e.target)) {
+        autoHidePanel();
+    }
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (isMobile()) {
+        // On mobile, ensure panel is collapsed by default
+        controlPanel.classList.add('collapsed');
+    } else {
+        // On desktop, ensure panel is expanded
+        controlPanel.classList.remove('collapsed');
+    }
+});
+
+// Initialize panel state based on screen size
+if (isMobile()) {
+    controlPanel.classList.add('collapsed');
+} else {
+    controlPanel.classList.remove('collapsed');
+}
+
+// Add touch event listeners to prevent auto-hide while interacting with controls
+const controlElements = controlPanel.querySelectorAll('button, input');
+controlElements.forEach(element => {
+    element.addEventListener('touchstart', (e) => {
+        e.stopPropagation();
+    });
 }); 
