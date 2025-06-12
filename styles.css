@@ -16,8 +16,8 @@ body {
 
 .control-panel {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 5px;
+    right: 5px;
     background: rgba(255, 255, 255, 0.95);
     padding: 12px;
     border-radius: 6px;
